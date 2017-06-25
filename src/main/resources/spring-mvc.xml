@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="GBK"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -10,10 +10,10 @@
   http://www.springframework.org/schema/mvc  
   http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
-	<!-- è‡ªåŠ¨æ‰«æè¯¥åŒ…ï¼Œä½¿Spring MVCè®¤ä¸ºåŒ…ä¸‹ç”¨äº†@controlleræ³¨è§£çš„ç±»æ˜¯æŽ§åˆ¶å™¨ -->
+	<!-- ×Ô¶¯É¨Ãè¸Ã°ü£¬Ê¹Spring MVCÈÏÎª°üÏÂÓÃÁË@controller×¢½âµÄÀàÊÇ¿ØÖÆÆ÷ -->
 	<context:component-scan base-package="com.eric.controller" />
 
-	<!--é¿å…IEæ‰§è¡ŒAJAXæ—¶ï¼Œè¿”å›žJSONå‡ºçŽ°ä¸‹è½½æ–‡ä»¶ -->
+	<!--±ÜÃâIEÖ´ÐÐAJAXÊ±£¬·µ»ØJSON³öÏÖÏÂÔØÎÄ¼þ -->
 	<bean id="mappingJacksonHttpMessageConverter"
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<property name="supportedMediaTypes">
@@ -23,31 +23,31 @@
 		</property>
 	</bean>
 
-	<!-- å¯åŠ¨Spring MVCçš„æ³¨è§£åŠŸèƒ½ï¼Œå®Œæˆè¯·æ±‚å’Œæ³¨è§£POJOçš„æ˜ å°„ -->
+	<!-- Æô¶¯Spring MVCµÄ×¢½â¹¦ÄÜ£¬Íê³ÉÇëÇóºÍ×¢½âPOJOµÄÓ³Éä -->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<ref bean="mappingJacksonHttpMessageConverter" />	<!-- JSONè½¬æ¢å™¨ -->
+				<ref bean="mappingJacksonHttpMessageConverter" />	<!-- JSON×ª»»Æ÷ -->
 			</list>
 		</property>
 	</bean>
 
-	<!-- å®šä¹‰è·³è½¬çš„æ–‡ä»¶çš„å‰åŽç¼€ï¼Œè§†å›¾æ¨¡å¼é…ç½® -->
+	<!-- ¶¨ÒåÌø×ªµÄÎÄ¼þµÄÇ°ºó×º£¬ÊÓÍ¼Ä£Ê½ÅäÖÃ -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- é…ç½®æ–‡ä»¶ä¸Šä¼ ï¼Œå¦‚æžœæ²¡æœ‰ä½¿ç”¨æ–‡ä»¶ä¸Šä¼ å¯ä»¥ä¸ç”¨é…ç½®ï¼Œå¦‚æžœä¸é…ç½®ï¼Œé‚£ä¹ˆé…ç½®æ–‡ä»¶ä¸­ä¹Ÿä¸å¿…å¼•å…¥ä¸Šä¼ ç»„ä»¶åŒ… -->
+	<!-- ÅäÖÃÎÄ¼þÉÏ´«£¬Èç¹ûÃ»ÓÐÊ¹ÓÃÎÄ¼þÉÏ´«¿ÉÒÔ²»ÓÃÅäÖÃ£¬Èç¹û²»ÅäÖÃ£¬ÄÇÃ´ÅäÖÃÎÄ¼þÖÐÒ²²»±ØÒýÈëÉÏ´«×é¼þ°ü -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- é»˜è®¤ç¼–ç  -->
+		<!-- Ä¬ÈÏ±àÂë -->
 		<property name="defaultEncoding" value="utf-8" />
-		<!-- æ–‡ä»¶å¤§å°æœ€å¤§å€¼ -->
+		<!-- ÎÄ¼þ´óÐ¡×î´óÖµ -->
 		<property name="maxUploadSize" value="10485760000" />
-		<!-- å†…å­˜ä¸­çš„æœ€å¤§å€¼ -->
+		<!-- ÄÚ´æÖÐµÄ×î´óÖµ -->
 		<property name="maxInMemorySize" value="40960" />
 	</bean>
 
